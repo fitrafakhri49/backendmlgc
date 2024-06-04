@@ -1,12 +1,11 @@
-FROM node:lts-alpine
+FROM node:lts
 ENV NODE_ENV=production
-ENV PORT=8080
-ENV MODEL_URL='https://storage.googleapis.com/submissionmlgc-fakhrifitra/model.json'
+ENV MODEL_URL=https://storage.googleapis.com/submissionmlgc-fakhrifitra/model.json
 WORKDIR /usr/src/app
-COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
-RUN npm install --production --silent && mv node_modules ../
+COPY package.json ./
+RUN npm install 
 COPY . .
-EXPOSE 3000
+EXPOSE 8080
 RUN chown -R node /usr/src/app
 USER node
 CMD ["npm", "start"]
