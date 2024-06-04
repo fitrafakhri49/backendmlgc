@@ -1,6 +1,6 @@
 FROM node:lts-alpine
 ENV NODE_ENV=production
-ENV PORT=8080
+ENV PORT=3000
 ENV MODEL_URL='https://storage.googleapis.com/submissionmlgc-fakhrifitra/model.json'
 WORKDIR /usr/src/app
 COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
